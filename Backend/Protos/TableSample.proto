@@ -1,0 +1,36 @@
+syntax = "proto3";
+option csharp_namespace = "Protobuf";
+package Services;
+
+import "google/protobuf/timestamp.proto";
+
+service TableSample {
+  rpc GetAllTableSamples (FiltersRequest) returns (TableSamples);
+  rpc GetTableSample (KeysRequest) returns (TableSample);
+  rpc InsertTableSample (TableSample) returns (Empty);
+  rpc UpdateTableSample (TableSample) returns (Empty);
+  rpc DeleteTableSample (KeysRequest) returns (Empty);
+}
+
+message FiltersRequest {
+  int64 id = 1;
+  string name = 2;
+}
+
+message KeysRequest {
+  int64 id = 1;
+}
+
+message Empty {
+}
+
+message TableSamples {
+  repeated TableSample items = 1;
+}
+
+message TableSample {
+  int64 id = 1;
+  string code = 2;
+  string name = 3;
+  google.protobuf.Timestamp created_at = 4;
+}
