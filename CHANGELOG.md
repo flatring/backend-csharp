@@ -7,6 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 ## [Unreleased]
 - T.B.D.
 
-## [0.0.1] - 2020-08-25
+## [0.0.1] - 2020-10-05
 ### Added
 - Create a new sample site.
