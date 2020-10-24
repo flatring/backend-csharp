@@ -1,0 +1,24 @@
+version: '3.1'
+
+services:
+  db:
+    # https://hub.docker.com/_/postgres
+    image: postgres:13-alpine
+    container_name: container-name
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password0123password
+      - PGPASSWORD=password0123password
+      - POSTGRES_DB=sampledb
+      - DATABASE_HOST=localhost
+    volumes:
+      - ./docker/db/data
+      # - ./docker/db/init:/docker-entrypoint-initdb.d
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080

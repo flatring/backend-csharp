@@ -4,7 +4,7 @@ package Services;
 
 import "google/protobuf/timestamp.proto";
 
-service TableSample {
+service TableSampleService {
   rpc GetAllTableSamples (FiltersRequest) returns (TableSamples);
   rpc GetTableSample (KeysRequest) returns (TableSample);
   rpc InsertTableSample (TableSample) returns (Empty);

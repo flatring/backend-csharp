@@ -8,19 +8,24 @@ using Protobuf;
 
 namespace Backend
 {
-  public class TableSample : Protobuf.TableSample.TableSampleBase
+  public class TableSampleServiceImpl : TableSampleService.TableSampleServiceBase
   {
-    private readonly ILogger<Protobuf.TableSample> _logger;
+    private readonly ILogger<TableSampleServiceImpl> _logger;
+
+    public TableSampleServiceImpl(ILogger<TableSampleServiceImpl> logger)
+    {
+      _logger = logger;
+    }
 
     // public override Task<TableSamples> GetAllTableSamples(FiltersRequest requestData, ServerCallContext context)
     // {
     //   var responseData = new TableSamples();
     // }
 
-    public override Task<TableSample> GetTableSample(KeysRequest requestData, ServerCallContext context)
+    public override Task<TableSample> GetTableSample(KeysRequest request, ServerCallContext context)
     {
       var tableSample = new Models.GetTableSample(request);
-      if (tableSample < 0)
+      if (tableSample.Status <= 0)
       {
         return null;
       }
