@@ -29,6 +29,40 @@
             1. Other
                 1. vscode-proto3: v0.5.2
 
+## Operation Procedure - 動作手順
+### preparation - 準備
+1. git clone
+    ```powershell
+    git clone https://github.com/flatring/backend-csharp.git
+    cd backend-csharp
+    ```
+1. docker run
+    ```posershell
+    docker-compose up -d
+    ```
+1. insert data > Adminer
+    1. brower
+        `localhost:8080`
+    1. Adminer login
+        1. See [docker-compose.yml](docker-compose.yml)
+    1. execute sql
+        1. sql command
+            1. `docker\db\init\table_samples.sql`
+
+### :one: - server
+1. power shell 起動
+    ```powershell
+    cd backend-csharp/Backend
+    dotnet run
+    ```
+
+### :two: - client
+1. power shell 起動
+    ```powershell
+    cd backend-csharp/ClientStub
+    dotnet run
+    ```
+
 ## Add in the following tutorials
 1. [チュートリアル: ASP.NET Core で gRPC のクライアントとサーバーを作成する](https://docs.microsoft.com/ja-jp/aspnet/core/tutorials/grpc/grpc-start?view=aspnetcore-3.1&tabs=visual-studio-code)
 1. [Dapper Tutorial](https://dapper-tutorial.net/dapper)
